@@ -3,13 +3,13 @@ let intentos;
 const maxIntentos = 10;
 
 // Inicia o reinicia el juego
-export function iniciarJuego() {
+function iniciarJuego() {
   numeroSecreto = Math.floor(Math.random() * 100) + 1;
   intentos = 0;
 }
 
 // Comprueba el número introducido por el usuario
-export function comprobarNumero(numeroUsuario) {
+function comprobarNumero(numeroUsuario) {
   intentos++;
   if (numeroUsuario === numeroSecreto) {
     return "¡Correcto!";
@@ -22,3 +22,6 @@ export function comprobarNumero(numeroUsuario) {
 
 // Llamamos a iniciarJuego al cargar
 iniciarJuego();
+
+// Exportamos para que ui.js lo pueda usar
+export { iniciarJuego, comprobarNumero, intentos, maxIntentos };
